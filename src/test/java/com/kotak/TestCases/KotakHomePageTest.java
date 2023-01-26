@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
 import com.kotak.pages.KotakHomepage;
 public class KotakHomePageTest extends TestBase {
 
-Actions act;
+
     KotakHomepage homepage;
 	public KotakHomePageTest() throws IOException 
 	{
@@ -41,11 +41,12 @@ Actions act;
 	{
 		
 		driver.get(pro.getProperty("baseUrl"));
+		homepage=new KotakHomepage(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		
     //click on explore product 
-		homepage=new KotakHomepage(driver);
+		Actions act=new Actions(driver);
 		act.moveToElement(homepage.getExploreProduct()).perform();
 		
 	//click on loan 
